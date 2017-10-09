@@ -37,9 +37,12 @@ app.route('/')
     .get(function(req, res) {
 		  res.sendFile(process.cwd() + '/views/index.html');
     })
-app.route('/:data').get(function(req,res){
+app.route('/fechas/:date').get(function(req,res){
   var params = req.params;
-  
+  res.send('<html><body>'
+		      + '<h1>Saludo</h1>'
+		      + JSON.stringify(params)
+		      + '</body></html>');
 })
 // Respond not found to all the wrong routes
 app.use(function(req, res, next){
