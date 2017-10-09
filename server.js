@@ -38,11 +38,17 @@ app.route('/')
 		  res.sendFile(process.cwd() + '/views/index.html');
     })
 app.route('/fechas/:date').get(function(req,res){
+  var mes = '';
   var params = req.params;
-  var meses = [];
+  var meses = ['January', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
+  for(var i = 1;i < meses.length;i++){
+    if(meses[i] == JSON.stringify(params.date.toLowerCase())){
+      mes = meses[i];
+    }
+  }
   res.send('<html><body>'
 		      + '<h1>Saludo</h1>'
-		      + JSON.stringify(params)
+		      + mes
 		      + '</body></html>');
 })
 // Respond not found to all the wrong routes
