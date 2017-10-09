@@ -39,6 +39,7 @@ app.route('/')
     })
 app.route('/fechas/:date').get(function(req,res){
   var params = req.params;
+  var meses = [];
   res.send('<html><body>'
 		      + '<h1>Saludo</h1>'
 		      + JSON.stringify(params)
