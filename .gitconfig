@@ -1,2 +1,5 @@
 [core]
 	excludesfile = /etc/.gitignore-global
+[user]
+	name = salva73
+	email = salvadorrode73@gmail.com
