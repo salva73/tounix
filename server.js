@@ -42,8 +42,10 @@ app.route('/fechas/:date').get(function(req,res){
   var params = req.params;
   var meses = ['January', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
   for(var i = 1;i < meses.length;i++){
-    if(meses[i] == JSON.stringify(params.date.toLowerCase())){
+    if(params.date.toLowerCase() == meses[i]){
       mes = meses[i];
+    }else{
+      mes = "please write the full month's name";
     }
   }
   res.send('<html><body>'
