@@ -39,18 +39,23 @@ app.route('/')
     })
 app.route('/fechas/:date').get(function(req,res){
   var mes = '';
+  var timeStamp = '';
   var params = req.params;
   var meses = ['January', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
+  var a = new Date(Date.parse(params.date));
+      timeStamp = a.getTime();
   for(var i = 1;i < meses.length;i++){
     if(params.date.toLowerCase() == meses[i]){
       mes = meses[i];
+      var a = new Date(Date.parse(mes));
+      timeStamp = a.getTime();
     }else{
       mes = "please write the full month's name";
     }
   }
   res.send('<html><body>'
 		      + '<h1>Saludo</h1>'
-		      + mes
+		      + timeStamp
 		      + '</body></html>');
 })
 // Respond not found to all the wrong routes
